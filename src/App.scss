@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+$main-font: 'Raleway', sans-serif;
+$dusty-rose: #c28285;
+
+* {
+  font-family: $main-font;
+  box-sizing: border-box;
+}
+
+input {
+  display: block;
+  margin: 5px 0 5px;
+}
+
+nav {
+  width: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom right, #9c6d6f, #5c3e3f);
+}
+
+nav li {
+  float: right;
+  margin: 4px;
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.4rem;
+}

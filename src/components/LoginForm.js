@@ -19,7 +19,7 @@ class LoginForm extends Component {
 
     render() {
         return(
-            <form onSubmit={event => this.props.handle_login(event, this.state)}>
+            <form onSubmit={event => this.props.handleLogin(event, this.state)}>
                 <h4>Log In</h4>
                 <input
                 type="text"
@@ -42,5 +42,5 @@ class LoginForm extends Component {
 export default LoginForm;
 
 LoginForm.propTypes = {
-    handle_login: PropTypes.func.isRequired
+    handleLogin: PropTypes.func.isRequired
 }

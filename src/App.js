@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Nav from './components/Nav'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +29,7 @@ class App extends Component {
   }
 
   handleLogin = (event, data) => {
+    
     event.preventDefault();
     fetch('http://localhost:8000/token-auth/', {
       method: 'POST',
@@ -40,15 +41,17 @@ class App extends Component {
     .then(response => response.json())
     .then(json => {
       localStorage.setItem('token', json.token);
+      console.log(json)
       this.setState({
         logged_in: true,
         displayed_form: '',
-        username: json.user.username
+        username: json.username
       })
     })
   }
 
   handleSignup = (event, data) => {
+
     event.preventDefault();
     fetch('http://localhost:8000/core/users/', {
       method: 'POST',
@@ -73,21 +76,20 @@ class App extends Component {
     this.setState({ logged_in: false, username: '' })
   }
 
-  display_form = form => {
+  displayForm = form => {
     this.setState({displayed_form: form})
   }
 
 
   render() {
-
     let form;
     switch (this.state.displayed_form) {
       case 'login':
         form = <LoginForm handleLogin={this.handleLogin} />
-        break
+        break;
       case 'signup':
         form = <SignupForm handleSignup={this.handleSignup} />
-        break
+        break;
       default:
         form = null;
     }
@@ -96,14 +98,14 @@ class App extends Component {
       <div className="App">
         <Nav 
         logged_in={this.state.logged_in}
-        display_form={this.display_form}
+        displayForm={this.displayForm}
         handleLogout={this.handleLogout}
         />
         {form}
         <h3>
           {this.state.logged_in
             ? `Hello, ${this.state.username}`
-            : 'Please Log In'
+            : 'Log In'
           }
         </h3>
       </div>

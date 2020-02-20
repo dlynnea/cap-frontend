@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class SignupForm extends Component {
     state = {
         username: '',
+        email: '',
         password: ''
     }
 
@@ -19,17 +20,26 @@ class SignupForm extends Component {
 
     render() {
         return(
-            <form onSubmit={event => this.props.handle_signup(event, this.state)}>
+            <form onSubmit={event => this.props.handleSignup(event, this.state)}>
             <h4>Sign Up</h4>
             <input
             type="text"
             name="username"
+            placeholder="username"
             value={this.state.username}
+            onChange={this.handleChange}
+            />
+            <input
+            type="text"
+            name="email"
+            placeholder="email"
+            value={this.state.email}
             onChange={this.handleChange}
             />
             <input
             type="password"
             name="password"
+            placeholder="password"
             value={this.state.password}
             onChange={this.handleChange}
             />
@@ -42,5 +52,5 @@ class SignupForm extends Component {
 export default SignupForm;
 
 SignupForm.propTypes = {
-    handle_signup: PropTypes.func.isRequired
+    handleSignup: PropTypes.func.isRequired
 }
