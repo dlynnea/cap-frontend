@@ -15,10 +15,11 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // const token = localStorage.getItem('token')
     if (this.state.logged_in) {
-      fetch('http://localhost:8000/core/current_user/', {
+      fetch('http://localhost:3000/users', {
         headers: {
-          Authorization: `JWT ${localStorage.getItem('token')}`
+          'Authorization': `JWT ${localStorage.getItem('token')}`
         }
       })
       .then(response => response.json())
@@ -29,9 +30,9 @@ class App extends Component {
   }
 
   handleLogin = (event, data) => {
-    
+    console.log(data)
     event.preventDefault();
-    fetch('http://localhost:8000/token-auth/', {
+    fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -39,13 +40,13 @@ class App extends Component {
       body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(json => {
-      localStorage.setItem('token', json.token);
-      console.log(json)
+    .then((result) => {
+      localStorage.setItem('token', result.token);
+      console.log("json", result)
       this.setState({
         logged_in: true,
         displayed_form: '',
-        username: json.username
+        username: result.username
       })
     })
   }
@@ -53,7 +54,7 @@ class App extends Component {
   handleSignup = (event, data) => {
 
     event.preventDefault();
-    fetch('http://localhost:8000/core/users/', {
+    fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -101,13 +102,13 @@ class App extends Component {
         displayForm={this.displayForm}
         handleLogout={this.handleLogout}
         />
-        {form}
         <h3>
           {this.state.logged_in
-            ? `Hello, ${this.state.username}`
-            : 'Log In'
+            ? `Hi, ${this.state.username}`
+            : 'Log in'
           }
         </h3>
+          {form}
       </div>
     );
   }

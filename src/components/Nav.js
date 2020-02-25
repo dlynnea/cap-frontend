@@ -5,8 +5,11 @@ function Nav(props) {
     const logged_out_nav = (
         <nav>
             <ul>
-                <li onClick={() => props.displayForm('login')}>login</li>
-                <li onClick={() => props.displayForm('signup')}>signup</li>
+                <li className="login-btn" onClick={() => props.displayForm('login')}>login</li>
+                <li className="signup-btn" onClick={() => props.displayForm('signup')}>signup</li>
+                <li className="nav-btn"><i class="fa fa-bookmark"></i></li>
+                <li className="nav-btn"><i class="fa fa-glasses"></i></li>
+                <li className="logo"><i class="fa fa-venus"></i></li>
             </ul>
         </nav>
     )
@@ -14,7 +17,10 @@ function Nav(props) {
     const logged_in_nav = (
         <nav>
             <ul>
-                <li onClick={props.handleLogout}>logout</li>
+                <li className="logout-btn" onClick={props.handleLogout}>logout</li>
+                <li className="nav-btn"><i class="fa fa-bookmark"></i></li>
+                <li className="nav-btn"><i class="fa fa-glasses"></i></li>
+                <li className="logo"><i class="fa fa-venus"></i></li>
             </ul>
         </nav>
     )

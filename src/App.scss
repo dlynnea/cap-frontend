@@ -2,15 +2,30 @@
 
 $main-font: 'Raleway', sans-serif;
 $dusty-rose: #c28285;
+$background-color: rgb(228, 226, 226);
+$liberty: #474787;
+$jacksons-purple: #40407a;
+$swan-white: #f7f1e3;
+$palmsprings: #218c74;
+$butternut: #ffda79;
+$grey-porcelain: #84817a;
+$devil-blue: #227093;
+$ships-officer: #2C3A47;
+
 
 * {
   font-family: $main-font;
   box-sizing: border-box;
 }
 
+body {
+  background-color: $swan-white;
+}
+
 input {
   display: block;
   margin: 5px 0 5px;
+  width: 150px;
 }
 
 nav {
@@ -22,15 +37,53 @@ nav ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-image: linear-gradient(to bottom right, #9c6d6f, #5c3e3f);
+  // background-image: linear-gradient(to bottom right, #705253, #b88b8d);
+  background-image: linear-gradient(to bottom right, $ships-officer, $grey-porcelain);
+  // background-image: linear-gradient(to bottom right, $palmsprings, $grey-porcelain);
 }
 
 nav li {
   float: right;
-  margin: 4px;
+  margin: 8px;
   display: block;
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
+}
+
+.nav-btn {
+  padding: 6px;
+  color: #999;
+  text-shadow: 1px 1px 1px #333;
+}
+
+.logout-btn, .login-btn, .signup-btn {
+  border: 1px solid #666;
+  padding: 4px 8px;
+  background-color: #888;
+
+  &:hover {
+    background-color: rgba(161, 142, 142, 0.7);
+  }
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 800px;
+}
+
+h3 {
+
+}
+
+li.logo {
+  float: left;
+  color: rgb(201, 200, 200);
+  padding: 6px 6px;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 1px rgb(29, 29, 29);
 }

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 class SignupForm extends Component {
     state = {
+        name: '',
         username: '',
-        email: '',
         password: ''
     }
 
@@ -24,16 +24,16 @@ class SignupForm extends Component {
             <h4>Sign Up</h4>
             <input
             type="text"
-            name="username"
-            placeholder="username"
-            value={this.state.username}
+            name="name"
+            placeholder="name"
+            value={this.state.name}
             onChange={this.handleChange}
             />
             <input
             type="text"
-            name="email"
-            placeholder="email"
-            value={this.state.email}
+            name="username"
+            placeholder="username"
+            value={this.state.username}
             onChange={this.handleChange}
             />
             <input
